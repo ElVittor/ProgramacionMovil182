@@ -1,4 +1,4 @@
 const nombre = "Hola Mundo";
-nombre = "Nuevo Valor"
+/* nombre = "Nuevo Valor" */
 
 console.log(nombre)
