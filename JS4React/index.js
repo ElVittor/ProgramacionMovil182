@@ -35,7 +35,7 @@ const usuario = {
 console.log(usuario)
 console.log(usuario.direccion.calle)
 console.log(usuario.amigos)
-console.log(usuario.enviaCorreo())*/
+console.log(usuario.enviaCorreo())
 
 //Trabajo con DOM
 
@@ -51,4 +51,62 @@ boton.addEventListener('click',function(){
     //console.log('Evento Click Ejecutando ... ')
     titulo.innerText="Evento Click Ejecutado";
     alert('Se Logró');
+});*/
+ 
+//Funciones de Arreglos
+
+const nombres = ['Alan', 'Iza', 'Pablo', 'Juan Luis']
+/*
+for(let i = 0; i<nombres.length; i++){
+    const elemento = nombres[i]
+    console.log(elemento)
+}
+
+//FUNCION FOREACH
+nombres.forEach(function (nombre){
+    console.log(nombre)
+})
+
+
+
+
+//Funcion MAP para generar copia de un Array
+const array2 = nombres.map(function(nombre){
+    console.log(nombre);
+    return nombre;
 });
+
+console.log(nombres);
+console.log(array2);
+
+//FUNCION FIND: Ubicar elementos en un arreglo
+const resultado=nombres.find(function(nombre){
+    if(nombre==='Pablo'){
+        return nombre
+    }
+})
+console.log(resultado)
+
+//FUNCION FILTER: Filtrar elementos de un arreglo
+const resultado = nombres.filter(function(nombre){
+    if(nombre !='Pablo'){
+        return nombre
+    }
+})
+
+console.log(nombres)
+console.log(resultado)
+
+//FUNCION CONCAT sumar 2 arreglos 0 en 1
+const edades =[78,89,12,8,10,15] 
+//console.log(nombres.concat(edades))
+
+//SPREAD OPERATOR
+console.log([...nombres,...edades])
+
+//EXPORT & IMPORT MODULES
+*/
+import {suma,resta} from './calculadora.js';
+
+console.log(suma(45,54));
+console.log(resta(45,54));
