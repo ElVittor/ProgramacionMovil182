@@ -51,12 +51,12 @@ boton.addEventListener('click',function(){
     //console.log('Evento Click Ejecutando ... ')
     titulo.innerText="Evento Click Ejecutado";
     alert('Se Logró');
-});*/
+});
  
 //Funciones de Arreglos
 
 const nombres = ['Alan', 'Iza', 'Pablo', 'Juan Luis']
-/*
+
 for(let i = 0; i<nombres.length; i++){
     const elemento = nombres[i]
     console.log(elemento)
@@ -105,8 +105,51 @@ const edades =[78,89,12,8,10,15]
 console.log([...nombres,...edades])
 
 //EXPORT & IMPORT MODULES
-*/
+
 import {suma,resta} from './calculadora.js';
+import fetch from 'node-fetch';
 
 console.log(suma(45,54));
 console.log(resta(45,54));
+*/
+
+//Ejemplo de promesa
+
+const ul = document.createElement("ul")
+
+let datos = fetch('https://jsonplaceholder.typicode.com/posts')
+        .then(function(response){
+            console.log("Carga de datos completada")
+            return response.json()
+        }).then(function (data){
+            console.log(data)
+            data.forEach( function(post){
+                const li = document.createElement('li')
+                li.innerHTML=post.title
+                ul.append(li)
+                })
+            document.body.append(ul)
+            });
+console.log("Cargando HTML ...")        
+console.log("Cargando CSS ...")
+console.log("Cargando Imagenes ...")
+console.log(datos)
+
+/* 
+//Ejecmplo de async
+const ul = document.createElement("ul")
+async function cargarDatos(){
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const datos = await response.json()
+    console.log(datos)
+    datos.forEach( function(post){
+        const li = document.createElement('li')
+        li.innerHTML=post.title
+        ul.append(li)
+        })
+        document.body.append(ul)  
+    };
+cargarDatos()
+console.log("Cargando HTML ...")        
+console.log("Cargando CSS ...")
+console.log("Cargando Imagenes ...") */
