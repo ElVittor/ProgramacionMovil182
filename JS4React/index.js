@@ -111,7 +111,6 @@ import fetch from 'node-fetch';
 
 console.log(suma(45,54));
 console.log(resta(45,54));
-*/
 
 //Ejemplo de promesa
 
