@@ -1,9 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import React,{useState} from 'react';
 
-const Texto=(props)=>{
-  const{children}=props
-  return (<Text>{children}</Text>)
+const Texto=()=>{
+  const [contenido, setContenido]= useState('Hola Mundo')
+  const actualizarContenido=()=>{setContenido('State actualizó este texto')}
+  return (<Text onPress={actualizarContenido}>{contenido}</Text>)
 }
 
 export default function App() {
@@ -11,11 +13,8 @@ export default function App() {
     
     <View style={styles.container}>
       
-      //ahora puedo escribir y llamar el texto  depende de lo que necesite
-      <Texto >Prueba Al Children</Texto>//cuando necesito anidar
+      <Texto contenido={"Hola Mundo"}></Texto>//cuando necesito anidar
       <Texto contenido={"React Native"}/>//Si no necesito anidar
-     
-      <Button title="presioname" color ="#000000"> </Button>//para el npm
 
       <StatusBar style="auto" />
     </View>

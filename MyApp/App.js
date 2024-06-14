@@ -2,9 +2,13 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import React,{useState} from 'react';
 
-const Texto=({contenido, onPress})=>{
-  return (<Text onPress={onPress}>{contenido}</Text>)
-}
+const Texto =({estilo})=>{
+  const [contenido, setContenido] = useState('Hola Mundo :D');
+  const cambiarTexto = () => {
+    setContenido('Hola a todos');
+  } 
+  return (<Text style={[styles.text, estilo]} onPress={cambiarTexto}>{contenido}</Text>);
+} 
 
 export default function App() {
   const [contenido, setContenido]= useState('Hola Mundo')
@@ -12,10 +16,10 @@ export default function App() {
   return (
     <View style={styles.container}>
       
-      <Texto contenido={contenido} onPress={actualizarContenido} />
-      <Texto contenido={contenido} onPress={actualizarContenido} />
+      <Texto estilo={styles.red} />
+      <Texto estilo={styles.green} />
+      <Texto estilo={styles.blue} />
 
-      <Button title="presioname" color ="#000000" onPress={actualizarContenido}> </Button>
       <StatusBar style="auto" />
     </View>
   );
@@ -25,7 +29,25 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'center',/* izquieda a derecha */
+    justifyContent: 'center',/* trabaja de arriba hacia abajo */
   },
+  text:{
+    color:'Yellow',
+    fontsiSize:25,
+    height:150,
+    width:150,
+  },
+red:{
+  flex: 2,
+  backgroundColor:'red',
+},
+green:{
+  flex: 2,
+  backgroundColor:'green',
+},
+blue:{
+  flex: 2,
+  backgroundColor:'blue',
+},
 });
