@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, TextInput, TouchableOpacity, TouchableHighlight, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, TouchableOpacity, TouchableHighlight, Pressable, ScrollView } from 'react-native';
 import React, {useState} from 'react'; /* para manejo de estados de componentes */
 
 /* const Texto =({estilo})=>{
@@ -15,14 +15,93 @@ export default function App() {
   const[submit, setSubmit] = useState('');
   return (
   <View style={styles.container}>
+    <ScrollView styles={styles.ScrollView} >
+
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+      <text>Componente: {submit} </text>
+
     <Pressable style={({ pressed }) => [{backgroundColor: pressed ? '#0056b3' : '#007BFF'}, styles.button]} onPress={() => { setSubmit(text); alert('Texto Enviado'); }}>
-      <View> {/* Manda error de children con esto empaquetamos el hig en un solo view y evita ese error */}
+      <View> {}
         <Text>Componente TextInput: {text} </Text>
         <TextInput style={styles.input} placeholder='Soy un Input: ' onChangeText={(t) => setText(t)} value={text} /> {/* crea una linea de entrada de texto */}
         <Button style={styles.buttonText} title='Presionaaaaaaaa!!!!!!' onPress={() => { setSubmit(text); alert('Texto Enviado'); }} />
       </View>
     </Pressable>
     <StatusBar style="auto" />
+    </ScrollView>
   </View>
   );
 }
@@ -52,4 +131,8 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 16, 
   },
+
+  ScrollView:{
+    width: Dimensions.get('window').width /* para que se ajuste al ancho de la pantalla independientemente del dispositivo */
+  }
 });
