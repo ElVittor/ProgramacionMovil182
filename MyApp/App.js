@@ -1,44 +1,32 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SectionList } from 'react-native';
-import React, {useState} from 'react'; /* para manejo de estados de componentes */
-
+import { StyleSheet, Text, View, FlatList, ActivityIndicator } from 'react-native';
+import React, { useState, useEffect } from 'react'; /* para manejo de estados de componentes */
+/* Use efect se usa para operaciones de las que no conocemos el resultado como la consulta a una api o BD */
 export default function App() {
-  const[text, setText] = useState('Dale: ');/* crea un estado con un valor inicial */
-  const[submit, setSubmit] = useState('');
+  const [user,setUser] = useState([]) /* Para asignar usuarios y setearlos */
+  const [loading, setLoading] = useState(true) /* para asignar tiempos de espera de la carga */
+
+  useEffect(()=>{ /* usa dos parametros, funcion y arreglo */
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response=> response.json())
+    .then(data=>{setUser(data), setLoading(false)} )
+  }, [])  
+
+/* el activity indicator usa solo 2 propiedades tamaño y color, es el spin que gira */
+  if(loading){
+    return <View style={styles.center} > 
+      <ActivityIndicator size='large' color='#0000ff' />
+      <Text> Carganding ... </Text>
+    </View>
+  }
+
   return (
   <View style={styles.container}>
-    <SectionList 
-      sections={[
-        {
-          title:'Grupo A',
-          data:[
-            {key:1, name: 'Nepomuceno Pámfilo'},
-            {key:2, name: 'SkyWalker Luke'},
-            {key:3, name: 'Potter Harry'},
-          ]
-        },
-        {
-          title:'Grupo B',
-          data:[
-            {key:1, name: 'Wayne Bruce'},
-            {key:2, name: 'Lane Loise'},
-            {key:3, name: 'Flintstone Peter'},
-          ]
-        },{
-          title:'Grupo C',
-          data:[
-            {key:1, name: 'Pedro Pedro'},
-            {key:2, name: 'Juanito Escarcha'},
-            {key:3, name: 'Tony Soprano'},
-          ]
-        },
-      ]}
-      renderItem={({item})=> <Text> {item.name} </Text> }
-      renderSectionHeader={ ({section})=> <Text style={styles.section} > {section.title} </Text> }
-
-    />
+    <FlatList 
+    data={user}
+    renderItem={({ item }) => <Text style={styles.item}>{item.name}</Text>}
+     />
     <StatusBar style="auto" />
-    
   </View>
   );
 }
@@ -55,15 +43,14 @@ item:{
   padding:10,
   fontSize:24,
   height:50,
-  borderColor: 'Pink',
+  borderColor: 'black',
   borderBottomWidth:1,
 },
-section:{
-fontSize:16,
-fontWeight:'bold',
-backgroundColor:'#987',
-paddingTop:4,
-paddingBottom:4,
+center:{
+flex:1,
+alignItems:'center',
+justifyContent:'center'
 }
+
 
 });
