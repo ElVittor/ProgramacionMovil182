@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+npmimport React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Alert, ImageBackground } from 'react-native';/* agregamos el image para la imagen de fondo */
 
 /* Para Setear las configuraciones iniciales del login */
@@ -11,7 +11,7 @@ export default function App() {
   };
 
   return (
-    <ImageBackground source={require('./assets/galaxia.jpg')} style={styles.background}>
+    <ImageBackground source={require('./assets/galaxia.jpeg')} style={styles.background}>
 
       {/* vista de la página de entrada */}
       <View style={styles.container}>
