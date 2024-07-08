@@ -83,6 +83,7 @@ export default function App() {
   };
 
   return (
+    
     <ImageBackground source={require('./assets/background.jpg')} style={styles.background}>
       <View style={styles.container}>
         <Text style={styles.title1}>Piratrix</Text>
